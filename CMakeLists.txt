@@ -1,8 +1,14 @@
 cmake_minimum_required(VERSION 3.11.3)
 
-# set(CMAKE_CXX_STANDARD 17)
 project(OSM_A_star_search)
 set(CMAKE_CXX_FLAGS ${CMAKE_CXX_FLAGS} "-std=c++17 -pthread")
+
+set(OpenCV_DIR /usr/lib/x86_64-linux-gnu/cmake/opencv4)
+
+# Map all build configurations to Release since OpenCV only has Release libs
+set(CMAKE_MAP_IMPORTED_CONFIG_DEBUG Release)
+set(CMAKE_MAP_IMPORTED_CONFIG_RELWITHDEBINFO Release)
+set(CMAKE_MAP_IMPORTED_CONFIG_MINSIZEREL Release)
 
 find_package(OpenCV 4.1 REQUIRED)
 
